@@ -1,23 +1,44 @@
-#pragma once
+#ifndef CLASSICS_H
+#define CLASSICS_H
+#include <string>
 #include "movie.h"
+using namespace std;
+//--------------------------  class Classics --------------------------------
+// ADT Classics: child class of Movie. Classical movie has extra info:
+// month and majorActor. Also, classical movie sort by majoractor, month,
+// and year.
+//
+// Implementation and assumptions:
+//   -- Implement as a child class of Movie
+// -- Implement with following futures:
+//      createMovieInfo(), ==, !=, >, <
+//   -- Assumption: each Classics movie that has same director, same
+//      title, same year and month, but has different Major will be 
+//      considirate as a diffrent  classic movie.
+//---------------------------------------------------------------------------
 class Classics : public Movie
 {
 public:
 
-	Classics(int stock, string director, string title, string majorActor, int month, int year);  // constructor
 	~Classics();                                // destructor
+	Classics(const string&);                            // constructor
+	Classics(const string&, const int&, const int&);    // copy constructor
 
-	bool operator==(const Movie* rhs) const = 0;   // equal comparison operator
-	bool operator!=(const Movie* rhs) const = 0; // not equal comparison operator
-	bool operator>(const Movie* rhs) const = 0; // greater than operator
-	bool operator<(const Movie* rh) const = 0;  // less than operator 
+	virtual string createMovieInfo() const;               //  virtual createMovieInfo
+	virtual string createCustomerHistory() const;    // virtual createCutomerHistory
 
-	void printMovieInfo() const;              // return string of full movie  info 
+	static const char GENRE = 'C';                   // static identifier for the class
 
-	static const char CODE = 'C';                   // static identifier for the class
+
 protected:
-	int month;
-	string majorActor;
+
+	void parseNLoadString(const string& movieInfo);     // helper method for copy constractor
+	bool operator==(const Movie* rhs) const;   // equal comparison operator
+	bool operator!=(const Movie* rhs) const; // not equal comparison operator
+	bool operator>(const Movie* rhs) const; // greater than operator
+	bool operator<(const Movie* rh) const;  // less than operator 
+
+	int month;                                          // hold month                                
+	string majorActor;                                  // hold majorActor
 };
-
-
+#endif
