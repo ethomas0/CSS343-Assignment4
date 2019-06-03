@@ -1,20 +1,37 @@
-#pragma once
+#ifndef COMEDY_H
+#define COMEDY_H
+#include <string>
 #include "movie.h"
+using namespace std;
+//-----------------------------class Comedy --------------------------------
+// ADT Comedy: child class of Movie. Comedy Movie sorts by
+// title and year
+//
+// Implementation and assumptions:
+//   -- Implement as a child class of Movie
+//   -- Implement with following futures:
+//      createMovieInfo(), ==, !=, >, <
+//---------------------------------------------------------------------------
 class Comedy : public Movie
 {
 public:
-	Comedy();
-	Comedy(int stock, string director, string title, int year);  // constructor
-	~Comedy();                                // destructor
 
-	bool operator==(const Movie* rhs) const =0;   // == operator
-	bool operator!=(const Movie* rhs) const = 0; // != operator
-	bool operator>(const Movie* rhs) const =0; // greater than operator
-	bool operator<(const Movie* rhs) const =0;  // less than operator 
+	Comedy(const string&);                            // constructor
+	Comedy(const string&, const int&);                // copy constructor
+	virtual ~Comedy();                                // destructor
 
-	void printMovieInfo() const;              // return string of movie info 
-       
-       static const char CODE = 'F';                   // static identifier for the class   
-};  
+	static const char GENRE = 'F';                   // static indentifier for a class 
 
+	virtual string createMoveInfo() const;               // virtual createMovieInfo
+	virtual string createCustomerHistory() const;    // virtual createCustomerHistory
+	
+	
+protected:
 
+	virtual bool operator==(const Movie* rhs) const;  
+	virtual bool operator!=(const Movie* rhs) const;
+	virtual bool operator>(const Movie* rhs) const;    
+	virtual bool operator<(const Movie* rhs) const;
+
+};
+#endif
