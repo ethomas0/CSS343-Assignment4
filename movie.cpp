@@ -1,58 +1,83 @@
-//class Movie
-//base class for Comedy, Drama, and Classics
-#ifndef MOVIE_H
-#define MOVIE_H
-
-#include <string>
-#include <iostream>
-#include <fstream>
+#include "movie.h"
 #include <sstream>
-#include <iomanip>
-using namespace std;
-//--------------------------  class Movie -----------------------------------
-// ADT Comedy: abstract class Movie. Abstact class for child classes Drama,
-// Comdedy, Classiscs. Can not be created. Used only for inheretance purpose.
-// General movie contains information about title, director, year, and stock.
-//
-// Implementation and assumptions:
-//   -- Implement as a abstract class
-//  -- Implement with following futures:
-//      printMovieInfo(), ==, !=, >, <
-//---------------------------------------------------------------------------
-class Movie 
+
+//------------------------- Movie()-------------------------------------------
+// --Constructor
+//----------------------------------------------------------------------------
+Movie::Movie()
 {
-public:
-	virtual ~Movie() {};                // destructor
+	type = ' ';
+	stock = 0;
+	director = "";
+	title = "";
+	year = 0;
+}
+
+//-------------------------parseNloadString()---------------------------------
+// --helper method for constractor. 
+// --Parses the string into a smaller pieces. From these pieces
+//   assign inforamtion to a current movie
+//----------------------------------------------------------------------------
+void Movie::parseNLoadString(const string& movieInfo)
+{
+	stringstream ss;                 // string reader
+	ss << movieInfo;                      // insert string info into reader
+
+	string temp;                     //  temp string to parse the string
+	char delimiter = ',';			// delimiter
+
+	getline(ss, temp, delimiter);          // get movie type
+	type = temp[0];                  // assign movie type
+	getline(ss, temp, delimiter);          // get stock
+	stringstream(temp) >> stock;  // assign stock // done this way since getline wants a string not int
+	getline(ss, director, delimiter);      // assign director
+	getline(ss, title, delimiter);         // assign title
+	getline(ss, temp, delimiter);          // get year
+	stringstream(temp) >> year;      // assign year // done this way since getline wants a string not int
+}
+
+//-------------------------increaseStock()-------------------------------------
+//  --increase stock of current movie
+//    takes one parameter: int addStock
+// --Returns true if stock was added
+//   else returns false is stock number is negative
+//-----------------------------------------------------------------------------
+bool Movie::increaseStock(int addToStock)
+{
+	if (addToStock < 0)
+	{ 
+		return false; 
+	}
+	else
+	{
+		stock += addToStock;
+		return true;
+	}
 	
-	virtual string createMovieInfo() const = 0;               //  pure virtual printInfo
-	virtual string createCustomerHistory() const = 0;    // pure virtual printInfoForCustomer
+}
 
-	virtual bool increaseStock(int);    // increase stock
-	virtual bool decreaseStock();       // decrease stock
-	virtual int getStock();             // return current stock
+//-------------------------getStock()-------------------------------------------
+// --returns current stock of the movie
+//------------------------------------------------------------------------------
+int Movie::getStock() 
+{
+	return stock;
+}
 
-
-
+//---------------------------decreaseStock()------------------------------------
+// --decreases current stock of the movie
+// --if stock is less or equal zero, stock will be the same and return false,
+//	 else will return true after decreasing stock by one
+bool Movie::decreaseStock()
+{
+	if (stock <= 0) 
+	{ 
+		return false; 
+	}
+	else
+	{
+		stock--;    // dicrease sctock
+		return true;
+	}
 	
-	virtual bool operator==(const Movie* rhs) const =0; // pure virtual isEqual operator
-	virtual bool operator!=(const Movie* rhs) const =0;
-	virtual bool operator>(const Movie* rhs) const =0;    // operator=>
-	virtual bool operator<(const Movie* rhs) const =0;   
-	
-	
-
-protected:
-
-	Movie();                            // constructor (protected) to avoid declaration of the object
-	void parseNLoadString(const string& movieInfo);     // helper method for copy constractor
-
-
-	//movie data
-	char type;                          // hold type
-	int stock;                          // hold stock
-	string director;                    // hold director
-	string title;                       // hold title
-	int year;                           // hold year
-
-};
-#endif
+}
