@@ -1,20 +1,37 @@
-#pragma once
+#ifndef DRAMA_H
+#define DRAMA_H
+#include <string>
 #include "movie.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+//----------------------------class Drama --------------------------------
+// ADT Drama: child class of Movie. Dramma Movie sorts
+// by director and title.
+//
+// Implementation and assumptions:
+//   -- Implement as a child class of Movie
+//   -- Implement with following futures:
+//      createMovieInfo(), ==, !=, >, <
+//---------------------------------------------------------------------------
 class Drama : public Movie
 {
 public:
-	Drama();
-	Drama(int stock, string director, string title, int year);  // constructor
-	~Drama();                                // destructor
 
-	bool operator==(const Movie* rhs) const = 0;   // == operator
-	bool operator!=(const Movie* rhs) const = 0; // != operator
-	bool operator>(const Movie* rhs) const = 0; // greater than operator
-	bool operator<(const Movie* rhs) const = 0;  // less than operator 
+	Drama(const string&);                            // constructor
+	Drama(const string&, const int&);                // copy constructor
+	virtual ~Drama();                                // destructor
 
-	void printMovieInfo() const;              // return string of movie  info  
+	static const char GENRE = 'F';                   // static indentifier for a class 
 
-	static const char CODE = 'D';                   // static identifier for the class   
+	virtual string createMoveInfo() const;               // virtual createMovieInfo
+	virtual string createCustomerHistory() const;    // virtual createCustomerHistory
+
+protected:
+
+	bool operator==(const Movie* rhs) const;   // == operator
+	bool operator!=(const Movie* rhs) const; // != operator
+	bool operator>(const Movie* rhs) const; // greater than operator
+	bool operator<(const Movie* rhs) const;  // less than operator 
 };
-
-
+#endif
