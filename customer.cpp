@@ -30,16 +30,16 @@
 *****************************************************************************/
 Customer::Customer()
 {
-	ID = -1;              		// customer id
+	ID = -1;              		 // customer id
 	lastName = "";               // customer last name
 	firstName = "";
 	head == NULL;
 }
 Customer::Customer(int newID, string newLastName, string newFirstName){
 	ID = newID;              		// customer id
-	lastName= newLastName;               // customer last name
-	firstName = newFirstName;
-	head == NULL;
+	lastName= newLastName;          // customer last name
+	firstName = newFirstName;		// customer first name
+	head == NULL;					// transaction history doesn't exist yet
 }
 
 
@@ -47,17 +47,17 @@ Customer::~Customer(){
 	TransactionLog* temp;
 
 	while (head != NULL) {
-		temp = head;
-		head->transaction = NULL;
+		temp = head;				// set temp to head
+		head->transaction = NULL;	// set transaction data to null
 
-		delete head->info;
-		head->info = NULL;
+		delete head->info;			// delete ptr to movie
+		head->info = NULL;			// set movie info to null
 
-		head = head->next;
-		delete temp;
+		head = head->next;			// set head to next transaction
+		delete temp;				// delete temp
+		temp = NULL;				// set temp to NULL
 	}
-	delete temp;
-	delete head;
+
 }
 
 /*****************************************************************************
@@ -68,9 +68,9 @@ Customer::~Customer(){
  * @Post-condition:  the transaction will be added to customer history
 *****************************************************************************/
 bool Customer::newTransaction(char type, Movie* theMovie) {
-	head->next = head;
-	head->transaction = type;
-	head->info = theMovie;
+	head->next = head;			// shifting last transaction to next
+	head->transaction = type;	// setting type of transation in head
+	head->info = theMovie;		// pointing to movie info of transaction
 
 }
 
@@ -81,20 +81,20 @@ bool Customer::newTransaction(char type, Movie* theMovie) {
  * @Post-condition: Prints the entire customer transaction history
 *****************************************************************************/
 void Customer::printHistory() {
-	cout << getName() << ": ID# " << IDOutput <<endl; 
+	cout << getName() << ": ID# " << IDOutput <<endl;  //printing customer info
 
-	TransactionLog * current = head;
+	TransactionLog * current = head;	// setting ptr to start of transaction history
 
-	bool done = false;
+	while (current!=NULL) {				// while there exists another transaction
+		cout << head->transaction;		// print the transaction type
 
-	while (!done) {
-		cout << head->transaction;
-		//print movie info
+		/**********************************
+		 *                                *
+		 *    TODO: print movie info      *
+		 *                                *
+		 **********************************/
 
-		if (current->next == NULL)
-			done == true;
-		else
-			current = current->next;
+		current = current->next;		// shift to next transaction
 	}
 
 
@@ -144,16 +144,16 @@ string Customer::getFirstName()const{
 string Customer::IDOutput() {
 	string toString = "";
 
-	if (ID > 999)
+	if (ID > 999)				// If no leading 0's
 		toString += ID;
 
-	else if (ID % 1000 == ID)
+	else if (ID % 1000 == ID)	// If 1 leading 0
 		toString += ("0" + ID);
 
-	else if(ID % 100 == ID)
+	else if(ID % 100 == ID)		// If 2 leading 0's
 		toString += ("00" + ID);
 
-	else if (ID % 10 == ID)
+	else if (ID % 10 == ID)		// If 3 leading 0's
 		toString += ("000" + ID);
 
 	return toString;
