@@ -34,7 +34,7 @@ Transaction::Transaction()
 //----------------------------------------------------------------------------
 Transaction::~Transaction()
 {
-	//TODO: destruct errorCollection
+	errorCollection.clear();
 }
 
 
@@ -43,29 +43,39 @@ Transaction::~Transaction()
 //----------------------------------------------------------------------------
 /*****************************************************************************
  * Function: processCommands
- * @Param : 		 commandFile where the command char has already be read
- * @Post-condition:
+ *
+ * PSA: IF COMMANDS ARE BEING SENT TO THIS FUNCTION IT MEANS THE TRANSACTION
+ *		CODE IS INVALID AND WILL BE SENT TO ERROR COLLECTION
+ *
+ * @Param : 		 char type is the code that caused the error
+ * @Post-condition:	the code will be added to erroCollection and the resto of 
+ *					the line will be discarded
 *****************************************************************************/
-void Transaction::processCommands(ifstream& commandFile) {
-	/*	
-	 *
-	 *				  TODO: ERROR CATCHING
-	 *	 If commands are being processed here it means 
-	 *	that it is an invalid instruction: add to errors
-	 * 
-	 *  errorCollection.push_back( getline()??);  //still working on syntax
-	 *
-	 */
+void Transaction::processCommands(char type, istream& commandFile) {
+	string discard;
+	getline(commandFile, discard);	//dicards the rest of the line
+
+	//Adding error to errorCollection:
+	errorCollection.push_back(type + " is not a type of transaction");
 }
+
+
 
 /*****************************************************************************
  * Function: printErrors
- * @Param : 		
- * @Post-condition:
+ * @Param : 		n/a
+ * @Post-condition: Prints all collected error from transaction processing
 *****************************************************************************/
 void Transaction::printErrors() {
+	cout << endl;
+	cout << "_____________________________________________________________________________" << endl << endl;
+	cout << "                          Invalid Transaction report" << endl << endl;
 
-	// traverse error collection
-	// NOTE: newest Transaction Last 
+	for (int i = 0; i < errorCollection.size(); i++){
+		cout << errorCollection[i] << "\n";
 
+	}
+
+	cout << endl;
+	cout << "_____________________________________________________________________________" << endl;
 }

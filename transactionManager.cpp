@@ -68,7 +68,6 @@ void TransactionManager::startTransaction(ifstream& commandFile) {
 				setTransaction = new Transaction();
 				break;
 		}
-
-		setTransaction->processCommands(commandFile);
+		setTransaction->processCommands(type, commandFile);  
 	}
 }

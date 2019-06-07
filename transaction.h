@@ -20,8 +20,12 @@
  */
 #pragma once
 #include <iostream>
+#include <fstream>
+#include <istream>
 #include <vector> 
-#include "customer.h"
+#include <string>
+#include "customerManager.h"
+#include "inventorymanager.h"
 #include "movie.h"
 
 using namespace std;
@@ -33,12 +37,14 @@ public:
 	virtual ~Transaction() {};  // destructor
 
 // processes commands
-	virtual void processCommands(ifstream&);
+	virtual void processCommands(char, istream&);
+
 	void printErrors();                              // prints error massages
-	static const char DVD = 'D';                 // shared by all transactions
+	static const char DVD = 'D';					 // shared by all transactions
 
 protected:
-
+	CustomerManager transactee;			//Link to CustomerManager to get customer pointer
+	InventoryManager theShelves;		//Link to InventoryManager to get movie pointer
 	vector <string> errorCollection;   //vector that holds all type of errors during                reading of the commands
 };
 
