@@ -24,7 +24,7 @@ public:
 
 	static const char GENRE = 'F';                   // static indentifier for a class 
 
-	virtual string createMoveInfo() const;               // virtual createMovieInfo
+	virtual string createMovieInfo() const;               // virtual createMovieInfo
 	virtual string createCustomerHistory() const;    // virtual createCustomerHistory
 
 protected:
