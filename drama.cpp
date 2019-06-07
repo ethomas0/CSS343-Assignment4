@@ -28,7 +28,7 @@ Drama::~Drama()
 //------------------------------createMovieInfo()-----------------------------
 // --Creates a formated string with all the movie info for output to console
 //----------------------------------------------------------------------------
-string Drama::createMoveInfo() const
+string Drama::createMovieInfo() const
 {
 	ostringstream movieInfo;
 
