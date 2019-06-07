@@ -33,13 +33,13 @@ Customer::Customer()
 	ID = -1;              		 // customer id
 	lastName = "";               // customer last name
 	firstName = "";
-	head == NULL;
+	head = NULL;
 }
 Customer::Customer(int newID, string newLastName, string newFirstName){
 	ID = newID;              		// customer id
 	lastName= newLastName;          // customer last name
 	firstName = newFirstName;		// customer first name
-	head == NULL;					// transaction history doesn't exist yet
+	head = NULL;					// transaction history doesn't exist yet
 }
 
 

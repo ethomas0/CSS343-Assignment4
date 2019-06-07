@@ -1,3 +1,21 @@
+/*
+ * HashTable Class Implementation File  @file hashTable.cpp
+ *
+ * HashTable is a class built to safely store up to 10,000 customer ID's
+ * in a 101 x 199 two-dimentional matrix, or table
+ *
+ * The algorithm determines the ID location by placing the customer
+ * In the table location [(ID + i^2) % 101][(ID +i^2) % 199] where
+ * i is the number of "hits" or tries to place the ID in the table
+ *
+ *
+ * @Author: 	Krystle S Levin -kslevin@uw.edu
+ * @Purpose:	Course Assignment 4 for CSS 343
+ *				i.e. Data Structures, Algorithms and Discrete Mathematics
+ * @Created on:	June 2, 2019
+ * 				*last Modification:	June 2, 2019
+ *
+ */
 #include "hashTable.h"
 
 //----------------------------------------------------------------------------
@@ -85,9 +103,10 @@ bool HashTable::addCustomertoHash(Customer* newCustomer) {
 
 	return false;
 }
+
 /*****************************************************************************
  * Function: remove Customer
- * @Param : 		 Existing ID is the ID of the customer to be retrieved
+ * @Param : 		 Existing ID is the ID of the customer to be removed
  *
  * @Post-condition:  If the customer exists in the table A pointer to the
  *					 customer is returned. If the customer does not exist
@@ -111,7 +130,7 @@ bool HashTable::removeCustomer(int existingID) {
 		if (currentID == existingID) { //if ID's Match then we are done
 			delete customerTable[(iSquared + existingID) % ROWS][(iSquared + existingID) % COLUMNS];
 			customerTable[(iSquared + existingID) % ROWS][(iSquared + existingID) % COLUMNS] = NULL;
-			done == true;
+			done = true;
 			
 		}
 		
@@ -148,7 +167,7 @@ Customer* HashTable::retreiveCustomer(int existingID) {
 		int currentID = temp->getIDNum();
 
 		if (currentID == existingID) { //if ID's Match then we are done
-			done == true;
+			done = true;
 			return temp;
 		}
 

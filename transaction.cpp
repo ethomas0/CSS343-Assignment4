@@ -34,7 +34,7 @@ Transaction::Transaction()
 //----------------------------------------------------------------------------
 Transaction::~Transaction()
 {
-	errorCollection.clear();
+	
 }
 
 
