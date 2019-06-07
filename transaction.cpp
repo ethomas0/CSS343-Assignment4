@@ -29,13 +29,7 @@ Transaction::Transaction()
 	//TODO: Initialize errorCollection?
 }
 
-//----------------------------------------------------------------------------
-//-------------------------------- Destructor --------------------------------
-//----------------------------------------------------------------------------
-Transaction::~Transaction()
-{
-	
-}
+
 
 
 //----------------------------------------------------------------------------
@@ -71,7 +65,7 @@ void Transaction::printErrors() {
 	cout << "_____________________________________________________________________________" << endl << endl;
 	cout << "                          Invalid Transaction report" << endl << endl;
 
-	for (int i = 0; i < errorCollection.size(); i++){
+	for (unsigned int i = 0; i < errorCollection.size(); i++){
 		cout << errorCollection[i] << "\n";
 
 	}

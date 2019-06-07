@@ -71,7 +71,7 @@ bool Customer::newTransaction(char type, Movie* theMovie) {
 	head->next = head;			// shifting last transaction to next
 	head->transaction = type;	// setting type of transation in head
 	head->info = theMovie;		// pointing to movie info of transaction
-
+	return true;
 }
 
 
@@ -81,7 +81,7 @@ bool Customer::newTransaction(char type, Movie* theMovie) {
  * @Post-condition: Prints the entire customer transaction history
 *****************************************************************************/
 void Customer::printHistory() {
-	cout << getName() << ": ID# " << IDOutput <<endl;  //printing customer info
+	cout << getName() << ": ID# " << IDOutput() <<endl;  //printing customer info
 
 	TransactionLog * current = head;	// setting ptr to start of transaction history
 
