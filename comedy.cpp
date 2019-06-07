@@ -70,7 +70,7 @@ bool Comedy::operator<(const Movie* rhs) const
 //------------------------------createMovieInfo()-----------------------------
 // --Creates a formated string with all the movie info for output to console
 //----------------------------------------------------------------------------
-string Comedy::createMoveInfo() const 
+string Comedy::createMovieInfo() const 
 {
 	ostringstream movieInfo;
 
