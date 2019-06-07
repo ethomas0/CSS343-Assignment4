@@ -22,7 +22,7 @@ public:
 	Drama(const string&, const int&);                // copy constructor
 	virtual ~Drama();                                // destructor
 
-	static const char GENRE = 'F';                   // static indentifier for a class 
+	static const char GENRE = 'D';                   // static indentifier for a class 
 
 	virtual string createMovieInfo() const;               // virtual createMovieInfo
 	virtual string createCustomerHistory() const;    // virtual createCustomerHistory
