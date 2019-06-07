@@ -1,18 +1,17 @@
 #pragma once
 #include "transaction.h"
-#include "customerDatabase.h"
+#include "customerManager.h"
+#include "customer.h"
 
 class Borrow : public Transaction
 {
 public:
 
-	Borrow();                 // constructor
-	~Borrow();                // destructor
-	static const char MyType = 'B';           // static identifier for the class
-	virtual void processCommands(CustomerDatabase&, InventoryDatabase&); // process Transaction
-protected:
+	Borrow();							// constructor
+	~Borrow();							// destructor
 
-	void borrowMovie(Customer*, Movie*);   // borrowed movie for customer
+	virtual void processCommands(char, ifstream&); // process Transaction
+
 };
 
 
