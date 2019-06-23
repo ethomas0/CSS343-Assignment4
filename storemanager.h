@@ -1,12 +1,16 @@
-//----------------------------- storemanager.cpp ----------------------------
+//---------------------------------- storemanager.h -------------------------
 // --Krystal Levin & Ethan Thomas
 //---------------------------------------------------------------------------
 
+#ifndef STOREMANAGER_H
+#define  STOREMANAGER_H
 #include <string>
 #include "string.h"
 #include <iostream>
 #include <fstream>
-#include "storemanager.h"
+#include "customermanager.h"
+#include "inventorymanager.h"
+#include "transactionmanager.h"
 
 //--------------------------  class StoreManager ----------------------------
 // Purpose:
@@ -18,19 +22,16 @@
 //   -- Implement with following futures:
 //      buildStore, readCommands
 //---------------------------------------------------------------------------
-
-//----------------------------- buildStore ----------------------------------
-// --Processes inventory file(movieFile) and customer file(customerFile)
-//---------------------------------------------------------------------------
-void StoreManager::buildStore(ifstream& movieFile, ifstream& customerFile)
+class StoreManager
 {
-	allInventory.processInventory(movieFile);
-	allCustomers.proccessCustomers(customerFile);
-}
+public:
 
-//------------------------------ readCommands -------------------------------
-// --Processes transaction commmands file (commands)
-//---------------------------------------------------------------------------
-void StoreManager::readCommands(ifstream& commands) {
-	allTransactions.readCommands(commands, allCustomers, allInventory);
-}
+	void buildStore(ifstream&, ifstream&);               // build store by  creating movie and customer base
+	void readCommands(ifstream&);                      // proccess commands lines
+
+private:
+	CustomerManager allCustomers;                     // Customer manager object
+	InventoryManager allInventory;                   // Inventroy manager object
+	TransactionManager allTransactions;                         // comands  manager object
+};
+#endif
