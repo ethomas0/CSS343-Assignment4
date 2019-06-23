@@ -29,7 +29,7 @@ public:
 
 	virtual string createMovieInfo() const;           // creates a formated string of movie info for output
 	virtual string createCustomerHistory() const;    // creates a string of movie info for customer transaction history
-	//virtual string getMajorActor() const;
+	
 	
 	
 protected:
