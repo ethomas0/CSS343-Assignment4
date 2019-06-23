@@ -1,20 +1,43 @@
-#pragma once
+//---------------------------- comedy.h ------------------------------------
+// --Krystal Levin & Ethan Thomas
+//--------------------------------------------------------------------------
+
+#ifndef COMEDY_H
+#define COMEDY_H
+#include <string>
 #include "movie.h"
-class Comedy : public Movie
+using namespace std;
+//---------------------------- Class Comedy --------------------------------
+// Purpose:
+//   -- Child class of Movie. Comedy Movie sorts by
+//      title and year.
+//
+// Implementation and assumptions:
+//   -- Implement as a child class of Movie.
+//   -- Implement with following futures:
+//      createMovieInfo, createCustomerHistory, ==, !=, >, <
+//---------------------------------------------------------------------------
+class Comedy: public Movie
 {
 public:
-	Comedy();
-	Comedy(int stock, string director, string title, int year);  // constructor
-	~Comedy();                                // destructor
 
-	bool operator==(const Movie* rhs) const =0;   // == operator
-	bool operator!=(const Movie* rhs) const = 0; // != operator
-	bool operator>(const Movie* rhs) const =0; // greater than operator
-	bool operator<(const Movie* rhs) const =0;  // less than operator 
+	Comedy(const string&);                            // constructor
+	Comedy(const string&, const int&);                // constructor
+	virtual ~Comedy();                                // destructor
 
-	void printMovieInfo() const;              // return string of movie info 
-       
-       static const char CODE = 'F';                   // static identifier for the class   
-};  
+	static const char GENRE = 'F';                   // static indentifier for a class 
 
+	virtual string createMovieInfo() const;           // creates a formated string of movie info for output
+	virtual string createCustomerHistory() const;    // creates a string of movie info for customer transaction history
+	//virtual string getMajorActor() const;
+	
+	
+protected:
 
+	virtual bool operator==(const Movie* rhs) const; 
+	virtual bool operator!=(const Movie* rhs) const;
+	virtual bool operator>(const Movie* rhs) const;    
+	virtual bool operator<(const Movie* rhs) const;
+
+};
+#endif
