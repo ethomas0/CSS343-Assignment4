@@ -1,0 +1,223 @@
+Script started on Sun 23 Jun 2019 02:43:15 PM PDT
+]0;ejthomas@uw1-320-13: ~ejthomas@uw1-320-13:~$ valgrind ./a.out
+==11631== Memcheck, a memory error detector
+==11631== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==11631== Using Valgrind-3.12.0.SVN and LibVEX; rerun with -h for copyright info
+==11631== Command: ./a.out
+==11631== 
+
+_____________________________________________________________________________
+
+                                Invalid movie report
+
+  Z, 10, Hal Ashby, Harold and Maude, Bud Cort 3 1971
+  Z, 10, Frank Capra, It's a Wonderful Life, James Steward 11 1946
+  
+
+_____________________________________________________________________________
+
+_____________________________________________________________________________
+
+                                Display Comedies 
+_____________________________________________________________________________
+ Title                           Year Director          Stock
+ Annie Hall                      1977 Woody Allen        10                  
+ Fargo                           1996 Joel Coen          10                  
+ National Lampoon's Animal House 1978 John Landis        10                  
+ Pirates of the Caribbean        2003 Gore Verbinski     10                  
+ Sleepless in Seattle            1993 Nora Ephron        10                  
+ When Harry Met Sally            1989 Rob Reiner         10                  
+ You've Got Mail                 1998 Nora Ephron        10                  
+
+_____________________________________________________________________________
+
+                                Display Dramas 
+_____________________________________________________________________________
+ Director             Title                    Year     Stock
+ Barry Levinson       Good Morning Vietnam     1988      10
+ Clint Eastwood       Unforgiven               1992      10
+ Gus Van Sant         Good Will Hunting        2000      10
+ Jonathan Demme       Silence of the Lambs     1991      10
+ Nancy Savoca         Dogfight                 1991      10
+ Phillippe De Broca   King of Hearts           1967      10
+ Steven Spielberg     Schindler's List         1993      10
+
+_____________________________________________________________________________
+
+                                Display Classics 
+_____________________________________________________________________________
+ Month  Year  Major actor        Title                  Director       Stock
+ 9      1938  Cary Grant         Holiday                George Cukor    10   
+ 9      1938  Katherine Hepburn  Holiday                George Cukor    10   
+ 2      1939  Clark Gable        Gone With the Wind     Victor Fleming  10   
+ 2      1939  Vivien Leigh       Gone With the Wind     Victor Fleming  10   
+ 7      1939  Judy Garland       The Wizard of Oz       Victor Fleming  10   
+ 5      1940  Cary Grant         The Philadelphia Story George Cukor    10   
+ 5      1940  Katherine Hepburn  The Philadelphia Story George Cukor    10   
+ 10     1941  Humphrey Bogart    The Maltese Falcon     John Huston     10   
+ 8      1942  Humphrey Bogart    Casablanca             Michael Curtiz  10   
+ 8      1942  Ingrid Bergman     Casablanca             Michael Curtiz  10   
+ 11     1946  Donna Reed         It's a Wonderful Life  Frank Capra     10   
+ 11     1946  James Steward      It's a Wonderful Life  Frank Capra     10   
+ 2      1971  Malcolm McDowell   A Clockwork Orange     Stanley Kubrick 10   
+ 3      1971  Ruth Gordon        Harold and Maude       Hal Ashby       10   
+
+_____________________________________________________________________________
+
+
+_____________________________________________________________________________
+
+Minnie Mouse: ID# 1000
+Rental History: 
+_____________________________________________________________________________
+
+
+_____________________________________________________________________________
+
+Freddie Frog: ID# 5000
+Rental History: 
+_____________________________________________________________________________
+
+
+_____________________________________________________________________________
+
+Wally Wacky: ID# 8000
+Rental History: 
+_____________________________________________________________________________
+
+
+
+_____________________________________________________________________________
+
+                                Display Comedies 
+_____________________________________________________________________________
+ Title                           Year Director          Stock
+ Annie Hall                      1977 Woody Allen        9                   
+ Fargo                           1996 Joel Coen          9                   
+ National Lampoon's Animal House 1978 John Landis        9                   
+ Pirates of the Caribbean        2003 Gore Verbinski     10                  
+ Sleepless in Seattle            1993 Nora Ephron        9                   
+ When Harry Met Sally            1989 Rob Reiner         9                   
+ You've Got Mail                 1998 Nora Ephron        9                   
+
+_____________________________________________________________________________
+
+                                Display Dramas 
+_____________________________________________________________________________
+ Director             Title                    Year     Stock
+ Barry Levinson       Good Morning Vietnam     1988       9
+ Clint Eastwood       Unforgiven               1992       9
+ Gus Van Sant         Good Will Hunting        2000       9
+ Jonathan Demme       Silence of the Lambs     1991       9
+ Nancy Savoca         Dogfight                 1991       8
+ Phillippe De Broca   King of Hearts           1967       9
+ Steven Spielberg     Schindler's List         1993       9
+
+_____________________________________________________________________________
+
+                                Display Classics 
+_____________________________________________________________________________
+ Month  Year  Major actor        Title                  Director       Stock
+ 9      1938  Cary Grant         Holiday                George Cukor    9    
+ 9      1938  Katherine Hepburn  Holiday                George Cukor    10   
+ 2      1939  Clark Gable        Gone With the Wind     Victor Fleming  10   
+ 2      1939  Vivien Leigh       Gone With the Wind     Victor Fleming  10   
+ 7      1939  Judy Garland       The Wizard of Oz       Victor Fleming  10   
+ 5      1940  Cary Grant         The Philadelphia Story George Cukor    9    
+ 5      1940  Katherine Hepburn  The Philadelphia Story George Cukor    9    
+ 10     1941  Humphrey Bogart    The Maltese Falcon     John Huston     9    
+ 8      1942  Humphrey Bogart    Casablanca             Michael Curtiz  10   
+ 8      1942  Ingrid Bergman     Casablanca             Michael Curtiz  10   
+ 11     1946  Donna Reed         It's a Wonderful Life  Frank Capra     10   
+ 11     1946  James Steward      It's a Wonderful Life  Frank Capra     10   
+ 2      1971  Malcolm McDowell   A Clockwork Orange     Stanley Kubrick 9    
+ 3      1971  Ruth Gordon        Harold and Maude       Hal Ashby       0    
+
+_____________________________________________________________________________
+
+
+_____________________________________________________________________________
+
+Minnie Mouse: ID# 1000
+Rental History: 
+Borrowed  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Borrowed  Classic:  5 1940 Cary Grant The Philadelphia Story George Cukor
+Borrowed    Drama:  Gus Van Sant  Good Will Hunting 2000
+Borrowed  Classic:  5 1940 Katherine Hepburn The Philadelphia Story George Cukor
+Borrowed    Drama:  Barry Levinson  Good Morning Vietnam 1988
+_____________________________________________________________________________
+
+
+_____________________________________________________________________________
+
+Mickey Mouse: ID# 1111
+Rental History: 
+Borrowed  Classic:  9 1938 Cary Grant Holiday George Cukor
+Borrowed  Classic:  10 1941 Humphrey Bogart The Maltese Falcon John Huston
+Borrowed  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Borrowed  Classic:  2 1971 Malcolm McDowell A Clockwork Orange Stanley Kubrick
+_____________________________________________________________________________
+
+
+_____________________________________________________________________________
+
+Freddie Frog: ID# 5000
+Rental History: 
+Borrowed  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Returned  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Borrowed  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Returned  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Borrowed  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Returned  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Borrowed  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+_____________________________________________________________________________
+
+
+_____________________________________________________________________________
+
+Wally Wacky: ID# 8000
+Rental History: 
+Borrowed   Comedy:  National Lampoon's Animal House  John Landis 1978
+Borrowed  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Borrowed  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Returned   Comedy:  You've Got Mail  Nora Ephron 1998
+Borrowed   Comedy:  You've Got Mail  Nora Ephron 1998
+_____________________________________________________________________________
+
+
+_____________________________________________________________________________
+
+Porky Pig: ID# 8888
+Rental History: 
+Borrowed  Classic:  3 1971 Ruth Gordon Harold and Maude Hal Ashby
+Borrowed    Drama:  Nancy Savoca  Dogfight 1991
+Borrowed    Drama:  Jonathan Demme  Silence of the Lambs 1991
+Borrowed   Comedy:  When Harry Met Sally  Rob Reiner 1989
+Borrowed   Comedy:  Annie Hall  Woody Allen 1977
+_____________________________________________________________________________
+
+
+------------------ Transaction Errors --------------------
+ERROR:   Sorry  Z 2 1971 Malcolm McDowell could not be found in the inventory
+ERROR:   X is an invalid transaction
+ERROR:   Z 1000 D C 10 1941 Humphrey Bogart is an invalid transaction
+ERROR:   Sorry there are no customers with ID #1234
+ERROR:   Sorry  F Bogus Title, 2001 could not be found in the inventory
+ERROR:   B 1000 Z F Fargo, 1996 is an invalid transaction
+ERROR:   Customer Larry Lizard ID: 9000: Sorry C 3 1971 Ruth Gordon  stock was 0
+ERROR:   Customer Wicked Witch ID: 3333: Sorry C 3 1971 Ruth Gordon  stock was 0
+ERROR:   Customer Sammy Spider ID: 7777: Sorry C 3 1971 Ruth Gordon  stock was 0
+ERROR:   Sorry  D Steven Spielberg, Bogus Title, could not be found in the inventory
+==11631== 
+==11631== HEAP SUMMARY:
+==11631==     in use at exit: 0 bytes in 0 blocks
+==11631==   total heap usage: 990 allocs, 990 frees, 297,875 bytes allocated
+==11631== 
+==11631== All heap blocks were freed -- no leaks are possible
+==11631== 
+==11631== For counts of detected and suppressed errors, rerun with: -v
+==11631== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;ejthomas@uw1-320-13: ~ejthomas@uw1-320-13:~$ exit
+exit
+
+Script done on Sun 23 Jun 2019 02:43:31 PM PDT
