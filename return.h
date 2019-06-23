@@ -1,18 +1,27 @@
-#pragma once
-#include "transaction.h"
-#include "customerDatabase.h"
+//--------------------------------- return.h --------------------------------
+// --Krystal Levin & Ethan Thomas
+//---------------------------------------------------------------------------
 
-class Return : public Transaction 
+#ifndef RETURN_H
+#define RETURN_H
+
+#include "transaction.h"
+
+//---------------------------------------------------------------------------
+// Purpose:
+//	 -- Return is a class for returning movies and is inherited 
+//		from Transaction
+//---------------------------------------------------------------------------
+
+class Return :
+	public Transaction
 {
 public:
+	Return(const string&, CustomerManager&, InventoryManager&);	//constructor
+	~Return();
 
-	Return();                 // constructor
-	~Return();                // destructor
-	static const char MyType = 'R';           // static identifier for the class
-	virtual void processCommands(CustomerDatabase&, InventoryDatabase&); // process Transaction
-protected:
-
-	void returnMovie(Customer*, Movie*);   // borrowed movie for customer
+	static const char CODE = 'R';		// Transaction code
 };
+#endif // !RETURN_H
 
 
