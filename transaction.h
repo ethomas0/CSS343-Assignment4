@@ -1,24 +1,28 @@
-#pragma once
-#include <iostream>
-#include <vector> 
-#include "inventoryDatabase.h"
-#include "movie.h"
+//-------------------------------- transaction.h ----------------------------
+// --Krystal Levin & Ethan Thomas
+//---------------------------------------------------------------------------
 
-using namespace std;
+#ifndef TRANSACTION_H
+#define TRANSACTION_H
+#include "customermanager.h"
+#include "inventorymanager.h"
+
+//-------------------------------- class Transaction ------------------------
+// Purpose:
+//	 -- Transaction is the parent class for all transactions
+//---------------------------------------------------------------------------
 
 class Transaction
 {
 public:
-	Transaction();              // constructor
-	virtual ~Transaction() {};  // destructor
+	Transaction();				// constructor: necessary for inheritance
+	virtual ~Transaction();		// virtual desrtuctor
 
-// processes commands
-	virtual void processCommands(CustomerDatabase&, InventoryDatabase&);
-	void printErrors();                              // prints error massages
-	static const char DVD = 'D';                 // shared by all transactions
+	static const char DVD = 'D';	// All transactions are for DVD's
+	string getError() const;
+
 protected:
-
-	vector <string> errorCollection;   //vector that holds all type of errors during                reading of the commands
+	string newError;
 };
-
+#endif
 
