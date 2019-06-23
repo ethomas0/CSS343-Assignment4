@@ -31,6 +31,7 @@ void StoreManager::buildStore(ifstream& movieFile, ifstream& customerFile)
 //------------------------------ readCommands -------------------------------
 // --Processes transaction commmands file (commands)
 //---------------------------------------------------------------------------
-void StoreManager::readCommands(ifstream& commands) {
+void StoreManager::readCommands(ifstream& commands)
+{
 	allTransactions.readCommands(commands, allCustomers, allInventory);
 }
