@@ -1,14 +1,24 @@
-#pragma once
-#include "customerDatabase.h"
+//---------------------------------- inventory.h -----------------------------
+// --Krystal Levin & Ethan Thomas
+//----------------------------------------------------------------------------
+
+#ifndef INVENTORY_H
+#define INVENTORY_H
+#include "transaction.h"
+
+//----------------------------- class Inventory ------------------------------
+// --Purpose:
+//	  -- Inventory is a class for viewing the store's Inventory and is 
+//		 inherited from Transaction
+//----------------------------------------------------------------------------
 
 class Inventory : public Transaction
 {
 public:
+	Inventory(const string&, CustomerManager&, InventoryManager&);		// Constructor
+	~Inventory();												// Destructor
 
-	Inventory();                 // constructor
-	~Inventory();                // destructor
-	static const char MyType = 'I';           // static identifier for the class
-	virtual void processCommands(CustomerDatabase&, InventoryDatabase&); // process Transaction
+	static const char CODE = 'I';		// Transacation Code
 };
-
+#endif // !INVENTORY_H
 
